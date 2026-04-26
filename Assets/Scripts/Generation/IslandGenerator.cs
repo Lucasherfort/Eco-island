@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 /**
 Classe : IslandGenerator
@@ -213,7 +213,13 @@ public class IslandGenerator : MonoBehaviour
 			}
 		}
 
-		NavMeshSurface nm = terrain.GetComponent<NavMeshSurface>();
+		NavMeshSurface nm = terrain.gameObject.GetComponent<NavMeshSurface>();
+
+		if(nm == null) {
+			Debug.LogError("No NavMeshSurface component found on the terrain. Please add one to enable creature navigation.");
+			return;
+		}
+
 		nm.BuildNavMesh();
 		
 

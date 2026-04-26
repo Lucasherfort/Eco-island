@@ -53,7 +53,7 @@ public class Agent : MonoBehaviour
 
         InitPhysicsTraits();
 
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         nav.velocity = Vector3.zero;
         nav.ResetPath();
 
